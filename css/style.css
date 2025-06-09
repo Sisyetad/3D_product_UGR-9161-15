@@ -1,0 +1,62 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Soft background gradient */
+  background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%);
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+  /* Fade-in effect */
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in forwards;
+  box-shadow: 0 8px 32px rgba(60, 60, 120, 0.18);
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+#info-panel {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 34, 44, 0.85);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: none;
+  letter-spacing: 0.03em;
+  transition: background 0.3s, box-shadow 0.3s;
+  z-index: 10;
+}
+
+#info-panel.show {
+  display: block;
+  animation: panelFadeIn 0.4s;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px);}
+  to   { opacity: 1; transform: translateX(-50%) translateY(0);}
+}
+
+/* Optional: Add a subtle vignette effect */
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 120px 40px rgba(30,34,44,0.10) inset;
+  z-index: 1;
+}
